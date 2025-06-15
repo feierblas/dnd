@@ -1,0 +1,11 @@
+{
+  "nom": "Test 2",
+  "date_creation": "2025-06-15",
+  "dernier_acces": "2025-06-15",
+  "combats": {
+    "enCours": [],
+    "preparation": [],
+    "archive": []
+  },
+  "historique": []
+}

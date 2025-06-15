@@ -1,0 +1,58 @@
+[
+  {
+    "type": "Aberration",
+    "description": "Créature étrange, souvent d'origine extra-planaires, à l'anatomie et l'esprit alien."
+  },
+  {
+    "type": "Bête",
+    "description": "Animaux non magiques, prédateurs, bétails, bêtes de somme."
+  },
+  {
+    "type": "Céleste",
+    "description": "Êtres issus des plans supérieurs, porteurs de lumière et de vertu (anges, licornes)."
+  },
+  {
+    "type": "Construction",
+    "description": "Entités artificielles, construites ou animées par magie (golems, armures animées)."
+  },
+  {
+    "type": "Dragon",
+    "description": "Créatures draconiques puissantes, dotées d'ailes, de souffle et d'une intelligence supérieure."
+  },
+  {
+    "type": "Elémentaire",
+    "description": "Créatures incarnant les éléments (air, feu, eau, terre, etc.)."
+  },
+  {
+    "type": "Fée",
+    "description": "Créatures du monde féerique, souvent espiègles ou liées à la nature."
+  },
+  {
+    "type": "Fiélon",
+    "description": "Entités maléfiques des enfers ou d'autres plans inférieurs (démons, diables, etc.)."
+  },
+  {
+    "type": "Géant",
+    "description": "Créatures humanoïdes massives, souvent associées à des éléments ou des cultures antiques."
+  },
+  {
+    "type": "Humanoïde",
+    "description": "Humains, elfes, orcs, gobelins, et autres races proches des humains."
+  },
+  {
+    "type": "Monstruosité",
+    "description": "Créatures étranges, produits d'expériences, de mutations ou de la magie."
+  },
+  {
+    "type": "Ooze",
+    "description": "Substances amorphes, gélatineuses ou corrosives."
+  },
+  {
+    "type": "Plante",
+    "description": "Créatures végétales conscientes ou animées par la magie."
+  },
+  {
+    "type": "Mort-vivant",
+    "description": "Créatures revenues d'entre les morts, par nécromancie ou malédiction."
+  }
+]
