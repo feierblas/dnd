@@ -1,0 +1,814 @@
+{
+  "nom": "Meoria",
+  "date_creation": "2025-06-20",
+  "dernier_acces": "2025-06-20",
+  "combats": {
+    "enCours": [
+      {
+        "id": "1c83-6bce-4032-a444-5d8c",
+        "nom": "ARARA",
+        "enCours": false,
+        "creation": "2025-06-20T21:44:16.731Z",
+        "creatures": [],
+        "historique": [],
+        "date_debut": "2025-06-20T21:44:19.396Z"
+      }
+    ],
+    "preparation": [
+      {
+        "id": "a4ca-4cfb-48f1-9db3-6499",
+        "nom": "Tour Belem - Etage 2",
+        "enCours": false,
+        "creation": "2025-06-20T21:37:27.233Z",
+        "creatures": []
+      }
+    ],
+    "archive": [
+      {
+        "id": "50f6-b7bf-43de-b250-1fa2",
+        "nom": "Tour Belem - Etage 1 - Sud",
+        "enCours": false,
+        "creation": "2025-06-20T21:37:22.051Z",
+        "creatures": [
+          {
+            "id": "1493-8060-42c8-abbe-98d3",
+            "nom": "Aldan",
+            "type": "",
+            "pv": 7,
+            "ca": 10,
+            "vitesse": 30,
+            "ddSorts": 10,
+            "etat": "Aucun",
+            "concentration": false,
+            "initiative": 15,
+            "commentaire": "",
+            "vulnerabilite": [],
+            "resistance": [
+              "Feu"
+            ],
+            "tourActuel": false
+          },
+          {
+            "id": "7079-e120-459c-a219-7418",
+            "nom": "Azura",
+            "type": "",
+            "pv": 1,
+            "ca": 10,
+            "vitesse": 30,
+            "ddSorts": 10,
+            "etat": "Aucun",
+            "concentration": false,
+            "initiative": 11,
+            "commentaire": "",
+            "vulnerabilite": [],
+            "resistance": [],
+            "tourActuel": false
+          },
+          {
+            "id": "f462-0279-4537-9cc6-14ec",
+            "nom": "Laugmar",
+            "type": "",
+            "pv": 1,
+            "ca": 10,
+            "vitesse": 30,
+            "ddSorts": 10,
+            "etat": "Empoisonné",
+            "concentration": false,
+            "initiative": 17,
+            "commentaire": "",
+            "vulnerabilite": [],
+            "resistance": [
+              "Feu"
+            ],
+            "tourActuel": false
+          },
+          {
+            "id": "f4af-536d-44a2-aa4c-2f0c",
+            "nom": "Lavi",
+            "type": "",
+            "pv": 1,
+            "ca": 10,
+            "vitesse": 30,
+            "ddSorts": 10,
+            "etat": "Aucun",
+            "concentration": false,
+            "initiative": 2,
+            "commentaire": "",
+            "vulnerabilite": [],
+            "resistance": [],
+            "tourActuel": false
+          },
+          {
+            "id": "e8ee-e039-4d51-92b4-2737",
+            "nom": "Monstre 1",
+            "type": "Fée",
+            "pv": 1,
+            "ca": 10,
+            "vitesse": 30,
+            "ddSorts": 10,
+            "etat": "Charmé",
+            "concentration": true,
+            "initiative": 10,
+            "commentaire": "",
+            "vulnerabilite": [],
+            "resistance": [],
+            "tourActuel": true
+          },
+          {
+            "id": "14b9-87f0-40af-ac7c-f204",
+            "nom": "Monstre 2",
+            "type": "Elémentaire",
+            "pv": 1,
+            "ca": 10,
+            "vitesse": 30,
+            "ddSorts": 10,
+            "etat": "Aucun",
+            "concentration": false,
+            "initiative": 11,
+            "commentaire": "",
+            "vulnerabilite": [],
+            "resistance": [],
+            "tourActuel": false
+          },
+          {
+            "id": "05be-54e8-4aac-8c35-7872",
+            "nom": "Monstre 3",
+            "type": "Aberration",
+            "pv": -10,
+            "ca": 10,
+            "vitesse": 30,
+            "ddSorts": 10,
+            "etat": "Aucun",
+            "concentration": false,
+            "initiative": 12,
+            "commentaire": "",
+            "vulnerabilite": [],
+            "resistance": [],
+            "tourActuel": false
+          }
+        ],
+        "historique": [
+          {
+            "type": "add",
+            "creature": {
+              "id": "1493-8060-42c8-abbe-98d3",
+              "nom": "Aldan",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 15,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "details": "Ajout de Aldan",
+            "after": {
+              "id": "1493-8060-42c8-abbe-98d3",
+              "nom": "Aldan",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 15,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "date": "2025-06-20T21:37:57.121Z"
+          },
+          {
+            "type": "add",
+            "creature": {
+              "id": "7079-e120-459c-a219-7418",
+              "nom": "Azura",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 11,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "details": "Ajout de Azura",
+            "after": {
+              "id": "7079-e120-459c-a219-7418",
+              "nom": "Azura",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 11,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "date": "2025-06-20T21:38:13.884Z"
+          },
+          {
+            "type": "add",
+            "creature": {
+              "id": "f462-0279-4537-9cc6-14ec",
+              "nom": "Laugmar",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 17,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "details": "Ajout de Laugmar",
+            "after": {
+              "id": "f462-0279-4537-9cc6-14ec",
+              "nom": "Laugmar",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 17,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "date": "2025-06-20T21:38:21.650Z"
+          },
+          {
+            "type": "add",
+            "creature": {
+              "id": "f4af-536d-44a2-aa4c-2f0c",
+              "nom": "Lavi",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 2,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "details": "Ajout de Lavi",
+            "after": {
+              "id": "f4af-536d-44a2-aa4c-2f0c",
+              "nom": "Lavi",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 2,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "date": "2025-06-20T21:38:27.806Z"
+          },
+          {
+            "type": "add",
+            "creature": {
+              "id": "e8ee-e039-4d51-92b4-2737",
+              "nom": "Monstre 1",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 10,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "details": "Ajout de Monstre 1",
+            "after": {
+              "id": "e8ee-e039-4d51-92b4-2737",
+              "nom": "Monstre 1",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 10,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "date": "2025-06-20T21:38:37.525Z"
+          },
+          {
+            "type": "add",
+            "creature": {
+              "id": "14b9-87f0-40af-ac7c-f204",
+              "nom": "Monstre 2",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 10,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "details": "Ajout de Monstre 2",
+            "after": {
+              "id": "14b9-87f0-40af-ac7c-f204",
+              "nom": "Monstre 2",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 10,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "date": "2025-06-20T21:38:43.144Z"
+          },
+          {
+            "type": "add",
+            "creature": {
+              "id": "05be-54e8-4aac-8c35-7872",
+              "nom": "Monstre 3",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 10,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "details": "Ajout de Monstre 3",
+            "after": {
+              "id": "05be-54e8-4aac-8c35-7872",
+              "nom": "Monstre 3",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 10,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "date": "2025-06-20T21:38:47.960Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "05be-54e8-4aac-8c35-7872",
+            "field": "type",
+            "before": {
+              "type": ""
+            },
+            "after": {
+              "type": "Aberration"
+            },
+            "details": "Modif type →Aberration sur Monstre 3",
+            "date": "2025-06-20T21:38:50.028Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "14b9-87f0-40af-ac7c-f204",
+            "field": "type",
+            "before": {
+              "type": ""
+            },
+            "after": {
+              "type": "Elémentaire"
+            },
+            "details": "Modif type →Elémentaire sur Monstre 2",
+            "date": "2025-06-20T21:38:50.868Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "e8ee-e039-4d51-92b4-2737",
+            "field": "type",
+            "before": {
+              "type": ""
+            },
+            "after": {
+              "type": "Fée"
+            },
+            "details": "Modif type →Fée sur Monstre 1",
+            "date": "2025-06-20T21:38:51.677Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "05be-54e8-4aac-8c35-7872",
+            "field": "initiative",
+            "before": {
+              "initiative": 10
+            },
+            "after": {
+              "initiative": 12
+            },
+            "details": "Modif initiative 10→12 sur Monstre 3",
+            "date": "2025-06-20T21:39:00.413Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "14b9-87f0-40af-ac7c-f204",
+            "field": "initiative",
+            "before": {
+              "initiative": 10
+            },
+            "after": {
+              "initiative": 11
+            },
+            "details": "Modif initiative 10→11 sur Monstre 2",
+            "date": "2025-06-20T21:39:04.693Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "f462-0279-4537-9cc6-14ec",
+            "field": "concentration",
+            "before": {
+              "concentration": false
+            },
+            "after": {
+              "concentration": true
+            },
+            "details": "Modif concentration false→true sur Laugmar",
+            "date": "2025-06-20T21:39:15.437Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "f462-0279-4537-9cc6-14ec",
+            "field": "concentration",
+            "before": {
+              "concentration": true
+            },
+            "after": {
+              "concentration": false
+            },
+            "details": "Modif concentration true→false sur Laugmar",
+            "date": "2025-06-20T21:39:15.731Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "1493-8060-42c8-abbe-98d3",
+            "field": "concentration",
+            "before": {
+              "concentration": false
+            },
+            "after": {
+              "concentration": true
+            },
+            "details": "Modif concentration false→true sur Aldan",
+            "date": "2025-06-20T21:39:16.342Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "1493-8060-42c8-abbe-98d3",
+            "field": "concentration",
+            "before": {
+              "concentration": true
+            },
+            "after": {
+              "concentration": false
+            },
+            "details": "Modif concentration true→false sur Aldan",
+            "date": "2025-06-20T21:39:16.588Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "05be-54e8-4aac-8c35-7872",
+            "field": "concentration",
+            "before": {
+              "concentration": false
+            },
+            "after": {
+              "concentration": true
+            },
+            "details": "Modif concentration false→true sur Monstre 3",
+            "date": "2025-06-20T21:39:17.238Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "05be-54e8-4aac-8c35-7872",
+            "field": "concentration",
+            "before": {
+              "concentration": true
+            },
+            "after": {
+              "concentration": false
+            },
+            "details": "Modif concentration true→false sur Monstre 3",
+            "date": "2025-06-20T21:39:17.469Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "f462-0279-4537-9cc6-14ec",
+            "field": "etat",
+            "before": {
+              "etat": "Aucun"
+            },
+            "after": {
+              "etat": "Empoisonné"
+            },
+            "details": "Modif etat Aucun→Empoisonné sur Laugmar",
+            "date": "2025-06-20T21:39:24.919Z"
+          },
+          {
+            "type": "resvuln",
+            "creatureId": "1493-8060-42c8-abbe-98d3",
+            "before": {
+              "resistance": [],
+              "vulnerabilite": []
+            },
+            "after": {
+              "resistance": [
+                "Contondants",
+                "Froid",
+                "Acide"
+              ],
+              "vulnerabilite": [
+                "Tranchants",
+                "Feu",
+                "Poison"
+              ]
+            },
+            "details": "Maj rés/vuln sur Aldan",
+            "date": "2025-06-20T21:39:58.288Z"
+          },
+          {
+            "type": "resvuln",
+            "creatureId": "1493-8060-42c8-abbe-98d3",
+            "before": {
+              "resistance": [
+                "Contondants",
+                "Froid",
+                "Acide"
+              ],
+              "vulnerabilite": [
+                "Tranchants",
+                "Feu",
+                "Poison"
+              ]
+            },
+            "after": {
+              "resistance": [
+                "Feu"
+              ],
+              "vulnerabilite": []
+            },
+            "details": "Maj rés/vuln sur Aldan",
+            "date": "2025-06-20T21:40:09.304Z"
+          },
+          {
+            "type": "resvuln",
+            "creatureId": "f462-0279-4537-9cc6-14ec",
+            "before": {
+              "resistance": [],
+              "vulnerabilite": []
+            },
+            "after": {
+              "resistance": [
+                "Feu"
+              ],
+              "vulnerabilite": []
+            },
+            "details": "Maj rés/vuln sur Laugmar",
+            "date": "2025-06-20T21:40:15.614Z"
+          },
+          {
+            "type": "add",
+            "creature": {
+              "id": "2e1f-4a30-495a-a289-c4a8",
+              "nom": "oups",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 10,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "details": "Ajout de oups",
+            "after": {
+              "id": "2e1f-4a30-495a-a289-c4a8",
+              "nom": "oups",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 10,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "date": "2025-06-20T21:40:24.064Z"
+          },
+          {
+            "type": "delete",
+            "creature": {
+              "id": "2e1f-4a30-495a-a289-c4a8",
+              "nom": "oups",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 10,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "details": "Suppression de oups",
+            "before": {
+              "id": "2e1f-4a30-495a-a289-c4a8",
+              "nom": "oups",
+              "type": "",
+              "pv": 1,
+              "ca": 10,
+              "vitesse": 30,
+              "ddSorts": 10,
+              "etat": "Aucun",
+              "concentration": false,
+              "initiative": 10,
+              "commentaire": "",
+              "vulnerabilite": [],
+              "resistance": [],
+              "tourActuel": false
+            },
+            "date": "2025-06-20T21:41:03.170Z"
+          },
+          {
+            "type": "damage",
+            "creatureId": "1493-8060-42c8-abbe-98d3",
+            "before": {
+              "pv": 1
+            },
+            "after": {
+              "pv": -4
+            },
+            "values": {
+              "Feu": 10
+            },
+            "total": 5,
+            "details": "Dégâts -5 PV sur Aldan",
+            "date": "2025-06-20T21:41:10.389Z"
+          },
+          {
+            "type": "heal",
+            "creatureId": "1493-8060-42c8-abbe-98d3",
+            "before": {
+              "pv": -4
+            },
+            "after": {
+              "pv": 7
+            },
+            "details": "Heal +11 PV (-4→7) sur Aldan",
+            "date": "2025-06-20T21:41:17.631Z"
+          },
+          {
+            "type": "damage",
+            "creatureId": "05be-54e8-4aac-8c35-7872",
+            "before": {
+              "pv": 1
+            },
+            "after": {
+              "pv": -10
+            },
+            "values": {
+              "Contondants": 11
+            },
+            "total": 11,
+            "details": "Dégâts -11 PV sur Monstre 3",
+            "date": "2025-06-20T21:41:29.979Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "e8ee-e039-4d51-92b4-2737",
+            "field": "etat",
+            "before": {
+              "etat": "Aucun"
+            },
+            "after": {
+              "etat": "Charmé"
+            },
+            "details": "Modif etat Aucun→Charmé sur Monstre 1",
+            "date": "2025-06-20T21:42:57.980Z"
+          },
+          {
+            "type": "edit",
+            "creatureId": "e8ee-e039-4d51-92b4-2737",
+            "field": "concentration",
+            "before": {
+              "concentration": false
+            },
+            "after": {
+              "concentration": true
+            },
+            "details": "Modif concentration false→true sur Monstre 1",
+            "date": "2025-06-20T21:43:22.460Z"
+          }
+        ],
+        "date_debut": "2025-06-20T21:40:29.036Z",
+        "tourIndex": 4,
+        "public": true,
+        "date_archive": "2025-06-20T21:43:56.506Z"
+      }
+    ]
+  },
+  "historique": [
+    {
+      "type": "creation_combat",
+      "date": "2025-06-20T21:37:13.073Z",
+      "details": {
+        "nom": "Tour Belem - Etage 1 - Nord",
+        "id": "308b-ce10-4bc0-ae67-8682"
+      }
+    },
+    {
+      "type": "creation_combat",
+      "date": "2025-06-20T21:37:22.051Z",
+      "details": {
+        "nom": "Tour Belem - Etage 1 - Sud",
+        "id": "50f6-b7bf-43de-b250-1fa2"
+      }
+    },
+    {
+      "type": "creation_combat",
+      "date": "2025-06-20T21:37:27.233Z",
+      "details": {
+        "nom": "Tour Belem - Etage 2",
+        "id": "a4ca-4cfb-48f1-9db3-6499"
+      }
+    },
+    {
+      "type": "creation_combat",
+      "date": "2025-06-20T21:44:16.731Z",
+      "details": {
+        "nom": "ARARA",
+        "id": "1c83-6bce-4032-a444-5d8c"
+      }
+    }
+  ]
+}

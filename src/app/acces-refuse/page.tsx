@@ -1,3 +1,5 @@
+// src/app/acces-refuse/page.ts
+
 export default function Page() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white">

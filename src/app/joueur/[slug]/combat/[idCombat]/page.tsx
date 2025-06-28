@@ -1,3 +1,4 @@
+// src/app/joueur/[slug]/combat/[idCombat]/page.ts
 "use client";
 import { useEffect, useState, use } from "react";
 

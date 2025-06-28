@@ -1,3 +1,4 @@
+// src/app/api/damage_types/route.ts
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";

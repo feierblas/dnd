@@ -1,3 +1,4 @@
+// hooks/useCampagne.ts
 "use client";
 import { useState, useCallback, useEffect } from "react";
 import { Campagne } from "@/types/campagne";

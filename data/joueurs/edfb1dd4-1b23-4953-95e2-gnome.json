@@ -1,0 +1,492 @@
+{
+  "id": "edfb1dd4-1b23-4953-95e2-gnome",
+  "name": "Nibble Ombrelueur",
+  "race": {
+    "nom": "Gnome de profondeurs (Svirfneblin)",
+    "traits": [
+      {
+        "nom": "Vision dans le noir supérieure",
+        "description": "60 mètres."
+      },
+      {
+        "nom": "Ruse des gnomes",
+        "description": "+2 sauvegarde INT/WIS/CHA contre magie."
+      }
+    ]
+  },
+  "classes": [
+    {
+      "nom": "Magicien",
+      "niveau": 2,
+      "sousClasse": "École d'Illusion",
+      "capacites": [
+        {
+          "nom": "Sculpteur d’illusion",
+          "description": "Modifier tes illusions mineures.",
+          "utilisationsMax": 2,
+          "utilisationsRestantes": 2
+        },
+        {
+          "nom": "Restauration arcanique",
+          "description": "Vous avez appris à regagner une partie de votre énergie magique par l'étude de votre grimoire. Une fois par jour, lorsque vous terminez un repos court, vous pouvez choisir des emplacements de sorts dépensés à récupérer. Les emplacements de sorts peuvent avoir un niveau combiné égal ou inférieur à la moitié de votre niveau de magicien (arrondi au supérieur), et aucun de ces emplacements ne peut être de niveau 6 ou supérieur.\n\nPar exemple, si vous êtes un magicien de niveau 4, vous pouvez récupérer jusqu'à l'équivalent de deux niveaux d'emplacements de sorts. Vous pouvez récupérer soit un emplacement de sort de niveau 2 ou deux emplacements de sorts de niveau 1.",
+          "utilisationsMax": 1,
+          "utilisationsRestantes": 0
+        }
+      ]
+    },
+    {
+      "nom": "Roublard",
+      "niveau": 11,
+      "sousClasse": "Voleur",
+      "capacites": [
+        {
+          "nom": "Action sournoise",
+          "description": "Utilise la ruse comme bonus."
+        }
+      ]
+    },
+    {
+      "nom": "Re",
+      "niveau": 5,
+      "sousClasse": "Sds",
+      "capacites": []
+    }
+  ],
+  "historique": "Espion",
+  "alignement": "Neutre bon",
+  "xp": 6500,
+  "stats": {
+    "force": {
+      "score": 21,
+      "mod": 5
+    },
+    "dexterite": {
+      "score": 18,
+      "mod": 4
+    },
+    "constitution": {
+      "score": 14,
+      "mod": 2
+    },
+    "intelligence": {
+      "score": 16,
+      "mod": 3
+    },
+    "sagesse": {
+      "score": 16,
+      "mod": 3
+    },
+    "charisme": {
+      "score": 6,
+      "mod": -2
+    }
+  },
+  "bonusMaitrise": 4,
+  "perceptionPassive": {
+    "mode": "auto",
+    "valeur": 13
+  },
+  "ca": 15,
+  "initiative": {
+    "mode": "auto",
+    "valeur": 4
+  },
+  "vitesse": 7.5,
+  "pv": 28,
+  "pvMax": 28,
+  "pvTemp": 0,
+  "desDeVie": {
+    "type": "d6/d8",
+    "total": 4,
+    "restants": 4
+  },
+  "jdsMort": {
+    "reussites": 0,
+    "echecs": 0
+  },
+  "jetsDeSauvegarde": [
+    {
+      "nom": "FOR",
+      "maitrise": true,
+      "valeur": 9,
+      "sourceStat": "force",
+      "mode": "auto"
+    },
+    {
+      "nom": "DEX",
+      "maitrise": true,
+      "valeur": 8,
+      "sourceStat": "dexterite",
+      "mode": "auto"
+    },
+    {
+      "nom": "CON",
+      "maitrise": false,
+      "valeur": 2,
+      "sourceStat": "constitution",
+      "mode": "auto"
+    },
+    {
+      "nom": "INT",
+      "maitrise": true,
+      "valeur": 7,
+      "sourceStat": "intelligence",
+      "mode": "auto"
+    },
+    {
+      "nom": "SAG",
+      "maitrise": false,
+      "valeur": 3,
+      "sourceStat": "sagesse",
+      "mode": "auto"
+    },
+    {
+      "nom": "CHA",
+      "maitrise": false,
+      "valeur": 2,
+      "sourceStat": "charisme",
+      "mode": "auto"
+    }
+  ],
+  "competences": [
+    {
+      "nom": "Athlétisme",
+      "stat": "force",
+      "maitrise": true,
+      "expertise": false,
+      "valeur": 9,
+      "mode": "auto"
+    },
+    {
+      "nom": "Acrobaties",
+      "stat": "dexterite",
+      "maitrise": true,
+      "expertise": true,
+      "valeur": 8,
+      "mode": "auto"
+    },
+    {
+      "nom": "Discrétion",
+      "stat": "dexterite",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 4,
+      "mode": "auto"
+    },
+    {
+      "nom": "Escamotage",
+      "stat": "dexterite",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 4,
+      "mode": "auto"
+    },
+    {
+      "nom": "Arcanes",
+      "stat": "intelligence",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 3,
+      "mode": "auto"
+    },
+    {
+      "nom": "Histoire",
+      "stat": "intelligence",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 3,
+      "mode": "auto"
+    },
+    {
+      "nom": "Investigation",
+      "stat": "intelligence",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 3,
+      "mode": "auto"
+    },
+    {
+      "nom": "Nature",
+      "stat": "intelligence",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 3,
+      "mode": "auto"
+    },
+    {
+      "nom": "Religion",
+      "stat": "intelligence",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 3,
+      "mode": "auto"
+    },
+    {
+      "nom": "Dressage",
+      "stat": "sagesse",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 3,
+      "mode": "auto"
+    },
+    {
+      "nom": "Intuition",
+      "stat": "sagesse",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 3,
+      "mode": "auto"
+    },
+    {
+      "nom": "Médecine",
+      "stat": "sagesse",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 3,
+      "mode": "auto"
+    },
+    {
+      "nom": "Perception",
+      "stat": "sagesse",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 3,
+      "mode": "auto"
+    },
+    {
+      "nom": "Survie",
+      "stat": "sagesse",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": 3,
+      "mode": "auto"
+    },
+    {
+      "nom": "Tromperie",
+      "stat": "charisme",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": -2,
+      "mode": "auto"
+    },
+    {
+      "nom": "Intimidation",
+      "stat": "charisme",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": -2,
+      "mode": "auto"
+    },
+    {
+      "nom": "Persuasion",
+      "stat": "charisme",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": -2,
+      "mode": "auto"
+    },
+    {
+      "nom": "Représentation",
+      "stat": "charisme",
+      "maitrise": false,
+      "expertise": false,
+      "valeur": -2,
+      "mode": "auto"
+    }
+  ],
+  "maitrises": {
+    "armures": [
+      "aucune",
+      "test"
+    ],
+    "armes": [
+      "armes courantes",
+      "armes simples"
+    ],
+    "outils": [
+      "outils de faussaire",
+      "outils de voleur"
+    ]
+  },
+  "armes": [
+    {
+      "nom": "Dague",
+      "attaque": "+6",
+      "degats": "1d4+3",
+      "proprietes": [
+        "finesse",
+        "lancer"
+      ]
+    }
+  ],
+  "sorts": {
+    "caracteristiqueIncantation": "intelligence",
+    "modificateurIncantation": 3,
+    "ddSort": 16,
+    "bonusAttaqueSort": 6,
+    "emplacements": [
+      {
+        "niveau": 1,
+        "total": 5,
+        "restants": 5
+      },
+      {
+        "niveau": 2,
+        "total": 3,
+        "restants": 3
+      },
+      {
+        "niveau": 3,
+        "total": 3,
+        "restants": 3
+      },
+      {
+        "niveau": 4,
+        "total": 3,
+        "restants": 3
+      }
+    ],
+    "connus": [
+      {
+        "nom": "Projectiles magiques",
+        "niveau": 1,
+        "ecole": "Évocation",
+        "description": "Trois projectiles d'énergie magique infligent 1d4+1 dégâts de force chacun à des cibles à portée.",
+        "concentration": false,
+        "rituel": false,
+        "prepare": true,
+        "portee": "36m",
+        "duree": "Instantanée",
+        "tempsIncantation": "1 action",
+        "composantes": [
+          ""
+        ],
+        "source": ""
+      },
+      {
+        "nom": "Détection de la magie",
+        "niveau": 1,
+        "ecole": "Divination",
+        "description": "Vous détectez la magie à 9 mètres autour de vous.",
+        "concentration": true,
+        "rituel": true,
+        "prepare": false,
+        "portee": "Personnelle",
+        "duree": "Jusqu'à 10 min",
+        "tempsIncantation": "1 action",
+        "composantes": [
+          "V, S, MMMMMM"
+        ],
+        "source": "PHB"
+      },
+      {
+        "nom": "Illusion mineure",
+        "niveau": 0,
+        "ecole": "Illusion",
+        "description": "Créez une petite illusion sonore ou visuelle.",
+        "concentration": false,
+        "rituel": false,
+        "prepare": true,
+        "portee": "9m",
+        "duree": "1 min",
+        "tempsIncantation": "1 action",
+        "composantes": [
+          "V, S, T"
+        ],
+        "source": "PHB"
+      },
+      {
+        "nom": "Arme Magique",
+        "niveau": 2,
+        "ecole": "transmutation",
+        "description": "Vous touchez une arme non magique. Jusqu'à la fin du sort, l'arme est considérée comme étant une arme magique avec un bonus de +1 aux jets d'attaque et aux dégâts.\n\nAux niveaux supérieurs. Lorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 4 ou supérieur, le bonus augmente à +2. Lorsque vous utilisez un emplacement de sort de niveau 6 ou supérieur, le bonus augmente à +3.",
+        "concentration": true,
+        "rituel": false,
+        "prepare": true,
+        "portee": "contact",
+        "duree": "1 heure",
+        "tempsIncantation": "",
+        "composantes": [
+          "VS"
+        ],
+        "source": ""
+      }
+    ]
+  },
+  "capacitesRaciales": [
+    {
+      "nom": "Adaptabilité des profondeurs",
+      "description": "Peut survivre sous terre, bonus contre l’illusion."
+    },
+    {
+      "nom": "tes",
+      "description": "test",
+      "utilisationsMax": 2,
+      "utilisationsRestantes": 2
+    }
+  ],
+  "dons": [
+    {
+      "nom": "Alerte",
+      "description": "+5 à l’initiative, impossible d’être surpris tant conscient.",
+      "utilisationsMax": 3,
+      "utilisationsRestantes": 3
+    }
+  ],
+  "apparence": {
+    "age": 43,
+    "taille": "1m05",
+    "poids": "17kg",
+    "couleurYeux": "gris",
+    "description": "Petit gnome au regard perçant, capuche sombre."
+  },
+  "histoire": "Enfant des galeries profondes, espion au service d’une guilde.",
+  "personnalite": "Prudent, vif d’esprit, loyal envers ses amis.",
+  "langues": [
+    "Commun",
+    "Gnome",
+    "Souterrain",
+    "tg"
+  ],
+  "equipement": [
+    {
+      "nom": "Sac à dos",
+      "description": "test",
+      "quantite": 1
+    },
+    {
+      "nom": "Corde de soie (15m)",
+      "description": "",
+      "quantite": 1,
+      "magique": false,
+      "lien": true
+    },
+    {
+      "nom": "Kit de déguisement",
+      "quantite": 1
+    },
+    {
+      "nom": "Epee radieuse",
+      "description": "Cet objet semble être une poignée d'épée longue. Lorsque vous saisissez la poignée, vous pouvez utiliser une action bonus pour faire apparaitre une lame de pure radiance, ou pour faire disparaître la lame. Lorsque la lame est sortie, l'épée longue magique a la propriété finesse. Si vous maîtrisez les épées longues ou courtes, vous maîtrisez l'épée radieuse.\nVous gagnez un bonus de +2 à l'attaque et aux dégâts infligés avec cette arme, qui inflige des dégâts radiants au lieu de dégâts tranchants. Quand vous frappez un mort-vivant avec cette arme, la cible subit 1d8 dégâts radiants supplémentaires.\nLa lame de l'épée émet une lumière vive dans un rayon de 4,50 mètres et une lumière faible sur 4,50 mètres supplémentaires. La lumière est semblable à la lumière du soleil. Tant que la lame persiste, vous pouvez utiliser une action pour augmenter ou réduire le rayon de lumière vive et de lumière faible de 1,50 mètre chacun, jusqu'à un maximum de 9 mètres ou un minimum de 3 mètres chacun.",
+      "quantite": 1,
+      "magique": true,
+      "lien": true,
+      "rarete": "rare"
+    }
+  ],
+  "pieces": {
+    "po": 56,
+    "pa": 12,
+    "pc": 8,
+    "pp": 0
+  },
+  "toucheATout": false,
+  "capaciteHistorique": [
+    {
+      "nom": "test",
+      "description": "test",
+      "utilisationsMax": 2,
+      "utilisationsRestantes": 2
+    }
+  ]
+}
