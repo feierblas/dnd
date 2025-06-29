@@ -26,20 +26,22 @@ export default function PageFichePerso() {
   const { player, updatePlayer, loading, saving, error } = usePlayer(id);
 
   const defaultLayout = [
-    { i: "vitals", x: 0, y: 0, w: 9, h: 10, minW: 8, minH: 2 },
-    { i: "stats", x: 9, y: 0, w: 9, h: 7, minW: 3, minH: 2 },
-    { i: "saves", x: 18, y: 0, w: 9, h: 9, minW: 5, minH: 2 },
-    { i: "competences", x: 0, y: 8, w: 9, h: 22, minW: 8, minH: 2 },
-    { i: "armes", x: 9, y: 5, w: 9, h: 5, minW: 7, minH: 2 },
-    { i: "maitrises", x: 9, y: 6, w: 9, h: 5, minW: 3, minH: 2 },
-    { i: "sorts", x: 18, y: 5, w: 9, h: 7, minW: 9, minH: 2 },
-    { i: "equipement", x: 0, y: 16, w: 9, h: 5, minW: 7, minH: 2 },
+    { i: "stats", x: 0, y: 0, w: 9, h: 7, minW: 3, minH: 2 },
+    { i: "saves", x: 0, y: 9, w: 9, h: 9, minW: 5, minH: 2 },
+    { i: "competences", x: 0, y: 18, w: 9, h: 22, minW: 8, minH: 2 },
+
+    { i: "vitals", x: 9, y: 0, w: 9, h: 10, minW: 8, minH: 2 },
     { i: "identite", x: 9, y: 10, w: 9, h: 14, minW: 9, minH: 2 },
-    { i: "dons", x: 18, y: 13, w: 9, h: 5, minW: 6, minH: 2 },
-    { i: "classes", x: 0, y: 20, w: 9, h: 16, minW: 8, minH: 2 },
-    { i: "traits", x: 9, y: 16, w: 9, h: 4, minW: 6, minH: 2 },
-    { i: "historique", x: 0, y: 25, w: 9, h: 4, minW: 6, minH: 2 },
-    { i: "pieces", x: 18, y: 18, w: 9, h: 5, minW: 3, minH: 2 },
+    { i: "armes", x: 9, y: 24, w: 9, h: 5, minW: 7, minH: 2 },
+    { i: "equipement", x: 9, y: 29, w: 9, h: 5, minW: 7, minH: 2 },
+    { i: "maitrises", x: 9, y: 34, w: 9, h: 5, minW: 3, minH: 2 },
+    { i: "pieces", x: 9, y: 39, w: 9, h: 5, minW: 3, minH: 2 },
+
+    { i: "traits", x: 18, y: 0, w: 9, h: 4, minW: 6, minH: 2 },
+    { i: "classes", x: 18, y: 4, w: 9, h: 16, minW: 8, minH: 2 },
+    { i: "historique", x: 18, y: 20, w: 9, h: 4, minW: 6, minH: 2 },
+    { i: "sorts", x: 18, y: 24, w: 9, h: 7, minW: 9, minH: 2 },
+    { i: "dons", x: 18, y: 31, w: 9, h: 5, minW: 6, minH: 2 },
   ];
 
   const [editMode, setEditMode] = useState(false);

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { SortComplet } from "@/types/Player";
 
 type Props = {
@@ -7,7 +8,21 @@ type Props = {
   onClose: () => void;
 };
 
+// Lock scroll body quand la modal est ouverte
+function useLockBodyScroll(lock: boolean) {
+  useEffect(() => {
+    if (!lock) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [lock]);
+}
+
 export default function SortModalEdit({ sort, onSave, onClose }: Props) {
+  useLockBodyScroll(true);
+
   const [value, setValue] = useState<SortComplet>(sort);
 
   function handleChange<K extends keyof SortComplet>(key: K, v: any) {
@@ -24,9 +39,35 @@ export default function SortModalEdit({ sort, onSave, onClose }: Props) {
     }));
   }
 
-  return (
-    <div className="fixed inset-0 z-40 bg-black/70 flex items-center justify-center">
-      <div className="bg-gray-900 rounded-xl p-6 shadow-lg max-w-lg w-full relative">
+  // Escape pour fermer
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  // Focus auto sur la modale à l'ouverture
+  const modalRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    modalRef.current?.focus();
+  }, []);
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[1200] bg-black/70 flex items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      tabIndex={-1}
+      onClick={onClose}
+    >
+      <div
+        ref={modalRef}
+        className="bg-gray-900 rounded-xl p-6 shadow-lg max-w-lg w-full relative outline-none"
+        tabIndex={0}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           className="absolute right-3 top-3 text-xl text-gray-400 hover:text-white"
           onClick={onClose}
@@ -126,9 +167,7 @@ export default function SortModalEdit({ sort, onSave, onClose }: Props) {
               type="text"
               className="w-full rounded bg-gray-800 border-gray-700 px-2 py-1"
               value={value.composantes.join(", ")}
-              onChange={(e) =>
-                setValue((prev) => ({ ...prev, composantes: [e.target.value] }))
-              }
+              onChange={(e) => handleComposantes(e.target.value)}
               placeholder="V, S, M"
               autoComplete="off"
               spellCheck={false}
@@ -176,6 +215,7 @@ export default function SortModalEdit({ sort, onSave, onClose }: Props) {
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    typeof window !== "undefined" ? document.body : (null as any)
   );
 }

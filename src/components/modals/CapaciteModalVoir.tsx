@@ -1,3 +1,7 @@
+// src/components/modals/CapaciteModalVoir.tsx
+
+import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Capacite } from "@/types/Player";
 
 type Props = {
@@ -5,10 +9,51 @@ type Props = {
   onClose: () => void;
 };
 
+// Pour être sûr d’être en environnement browser
+function useLockBodyScroll(lock: boolean) {
+  useEffect(() => {
+    if (!lock) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [lock]);
+}
+
 export default function CapaciteModalVoir({ capacite, onClose }: Props) {
-  return (
-    <div className="fixed inset-0 z-40 bg-black/70 flex items-center justify-center">
-      <div className="bg-gray-900 rounded-xl p-6 shadow-lg max-w-md w-full relative">
+  useLockBodyScroll(true);
+
+  // Fermer avec la touche Escape
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  // Focus auto sur la modale (pour accessibilité)
+  useEffect(() => {
+    const el = document.getElementById("capacite-modal-content");
+    el?.focus();
+  }, []);
+
+  // Rendu dans body (portal)
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[1200] bg-black/70 flex items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      tabIndex={-1}
+      onClick={onClose} // Ferme la modal si on clique sur le backdrop
+    >
+      <div
+        id="capacite-modal-content"
+        className="bg-gray-900 rounded-xl p-6 shadow-lg max-w-md w-full relative outline-none"
+        tabIndex={0}
+        onClick={(e) => e.stopPropagation()} // Empêche de fermer si clique sur la modal
+      >
         <button
           className="absolute right-3 top-3 text-xl text-gray-400 hover:text-white"
           onClick={onClose}
@@ -38,6 +83,7 @@ export default function CapaciteModalVoir({ capacite, onClose }: Props) {
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    typeof window !== "undefined" ? document.body : (null as any)
   );
 }

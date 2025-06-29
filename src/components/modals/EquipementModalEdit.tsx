@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { EquipementItem } from "@/types/Player";
 
 type Props = {
@@ -7,7 +8,21 @@ type Props = {
   onClose: () => void;
 };
 
+// Lock scroll du body si modal ouverte
+function useLockBodyScroll(lock: boolean) {
+  useEffect(() => {
+    if (!lock) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [lock]);
+}
+
 export default function EquipementModalEdit({ item, onSave, onClose }: Props) {
+  useLockBodyScroll(true);
+
   const [nom, setNom] = useState(item?.nom ?? "");
   const [description, setDescription] = useState(item?.description ?? "");
   const [quantite, setQuantite] = useState(item?.quantite ?? 1);
@@ -15,9 +30,35 @@ export default function EquipementModalEdit({ item, onSave, onClose }: Props) {
   const [lien, setLien] = useState(item?.lien ?? false);
   const [rarete, setRarete] = useState(item?.rarete ?? "");
 
-  return (
-    <div className="fixed inset-0 z-40 bg-black/70 flex items-center justify-center">
-      <div className="bg-gray-900 rounded-xl p-6 shadow-lg max-w-md w-full relative">
+  // Escape pour fermer la modale
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  // Focus auto à l'ouverture
+  const modalRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    modalRef.current?.focus();
+  }, []);
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[1200] bg-black/70 flex items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      tabIndex={-1}
+      onClick={onClose}
+    >
+      <div
+        ref={modalRef}
+        className="bg-gray-900 rounded-xl p-6 shadow-lg max-w-md w-full relative outline-none"
+        tabIndex={0}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           className="absolute right-3 top-3 text-xl text-gray-400 hover:text-white"
           onClick={onClose}
@@ -116,6 +157,7 @@ export default function EquipementModalEdit({ item, onSave, onClose }: Props) {
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    typeof window !== "undefined" ? document.body : (null as any)
   );
 }

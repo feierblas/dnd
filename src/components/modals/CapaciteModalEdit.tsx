@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Capacite } from "@/types/Player";
 
 type Props = {
@@ -7,11 +8,24 @@ type Props = {
   onClose: () => void;
 };
 
+function useLockBodyScroll(lock: boolean) {
+  useEffect(() => {
+    if (!lock) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [lock]);
+}
+
 export default function CapaciteModalEdit({
   capacite,
   onSave,
   onClose,
 }: Props) {
+  useLockBodyScroll(true);
+
   const [nom, setNom] = useState(capacite?.nom ?? "");
   const [desc, setDesc] = useState(capacite?.description ?? "");
   const [utilMax, setUtilMax] = useState<number | undefined>(
@@ -20,6 +34,21 @@ export default function CapaciteModalEdit({
   const [utilRest, setUtilRest] = useState<number | undefined>(
     capacite?.utilisationsRestantes ?? capacite?.utilisationsMax ?? undefined
   );
+
+  // Fermer avec la touche Escape
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  // Focus sur la modale à l'ouverture
+  const modalRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    modalRef.current?.focus();
+  }, []);
 
   function handleSave() {
     if (!nom.trim()) return;
@@ -38,9 +67,21 @@ export default function CapaciteModalEdit({
     onClose();
   }
 
-  return (
-    <div className="fixed inset-0 z-40 bg-black/70 flex items-center justify-center">
-      <div className="bg-gray-900 rounded-xl p-6 shadow-lg max-w-md w-full relative">
+  // Rendu via Portal dans le body (sûr d'être “au-dessus de tout”)
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[1200] bg-black/70 flex items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      tabIndex={-1}
+      onClick={onClose}
+    >
+      <div
+        ref={modalRef}
+        className="bg-gray-900 rounded-xl p-6 shadow-lg max-w-md w-full relative outline-none"
+        tabIndex={0}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           className="absolute right-3 top-3 text-xl text-gray-400 hover:text-white"
           onClick={onClose}
@@ -123,6 +164,7 @@ export default function CapaciteModalEdit({
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    typeof window !== "undefined" ? document.body : (null as any)
   );
 }
