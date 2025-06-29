@@ -21,16 +21,22 @@
       "sousClasse": "École d'Artiste",
       "capacites": [
         {
-          "nom": "Sculpteur d’illusion",
+          "nom": "Sculpteur d’illusions",
           "description": "Modifier tes illusions mineures.",
-          "utilisationsMax": 2,
-          "utilisationsRestantes": 2
+          "utilisationsMax": 3,
+          "utilisationsRestantes": 3
         },
         {
           "nom": "Restauration arcanique",
           "description": "Vous avez appris à regagner une partie de votre énergie magique par l'étude de votre grimoire. Une fois par jour, lorsque vous terminez un repos court, vous pouvez choisir des emplacements de sorts dépensés à récupérer. Les emplacements de sorts peuvent avoir un niveau combiné égal ou inférieur à la moitié de votre niveau de magicien (arrondi au supérieur), et aucun de ces emplacements ne peut être de niveau 6 ou supérieur.\n\nPar exemple, si vous êtes un magicien de niveau 4, vous pouvez récupérer jusqu'à l'équivalent de deux niveaux d'emplacements de sorts. Vous pouvez récupérer soit un emplacement de sort de niveau 2 ou deux emplacements de sorts de niveau 1.",
           "utilisationsMax": 1,
-          "utilisationsRestantes": 0
+          "utilisationsRestantes": 1
+        },
+        {
+          "nom": "Test",
+          "description": "testetest",
+          "utilisationsMax": 2,
+          "utilisationsRestantes": 2
         }
       ]
     },
@@ -51,28 +57,28 @@
   "xp": 1700,
   "stats": {
     "force": {
-      "score": 13,
-      "mod": 1
-    },
-    "dexterite": {
-      "score": 9,
-      "mod": -1
-    },
-    "constitution": {
       "score": 14,
       "mod": 2
     },
-    "intelligence": {
-      "score": 17,
-      "mod": 3
+    "dexterite": {
+      "score": 14,
+      "mod": 2
     },
-    "sagesse": {
+    "constitution": {
       "score": 16,
       "mod": 3
     },
+    "intelligence": {
+      "score": 19,
+      "mod": 4
+    },
+    "sagesse": {
+      "score": 19,
+      "mod": 4
+    },
     "charisme": {
-      "score": 6,
-      "mod": -2
+      "score": 8,
+      "mod": -1
     }
   },
   "bonusMaitrise": 5,
@@ -95,7 +101,7 @@
     "restants": 5
   },
   "jdsMort": {
-    "reussites": 0,
+    "reussites": 1,
     "echecs": 0
   },
   "jetsDeSauvegarde": [
@@ -290,7 +296,8 @@
   ],
   "maitrises": {
     "armures": [
-      "Armues lourd"
+      "Armues lourd",
+      ""
     ],
     "armes": [
       "Epée court"
@@ -308,21 +315,61 @@
         "finesse",
         "lancer"
       ]
+    },
+    {
+      "nom": "",
+      "attaque": "",
+      "degats": "",
+      "proprietes": []
     }
   ],
   "sorts": {
     "caracteristiqueIncantation": "intelligence",
     "modificateurIncantation": 3,
     "ddSort": 16,
-    "bonusAttaqueSort": 6,
+    "bonusAttaqueSort": 7,
     "emplacements": [
       {
         "niveau": 1,
         "total": 4,
         "restants": 2
+      },
+      {
+        "niveau": 2,
+        "total": 2,
+        "restants": 2
       }
     ],
-    "connus": []
+    "connus": [
+      {
+        "nom": "Test",
+        "niveau": 0,
+        "ecole": "",
+        "description": "",
+        "concentration": false,
+        "rituel": false,
+        "prepare": false,
+        "portee": "",
+        "duree": "",
+        "tempsIncantation": "",
+        "composantes": [],
+        "source": ""
+      },
+      {
+        "nom": "TEST2 sssssssssssssssssssssssssssssssssssss",
+        "niveau": 0,
+        "ecole": "",
+        "description": "",
+        "concentration": false,
+        "rituel": false,
+        "prepare": false,
+        "portee": "",
+        "duree": "",
+        "tempsIncantation": "",
+        "composantes": [],
+        "source": ""
+      }
+    ]
   },
   "capacitesRaciales": [
     {
@@ -333,7 +380,7 @@
       "nom": "tes",
       "description": "test",
       "utilisationsMax": 2,
-      "utilisationsRestantes": 2
+      "utilisationsRestantes": 1
     }
   ],
   "dons": [
@@ -360,11 +407,12 @@
   ],
   "equipement": [
     {
-      "nom": "Test",
-      "description": "",
-      "quantite": 2,
-      "magique": false,
-      "lien": false
+      "nom": "Epee radieuse",
+      "description": "Cet objet semble être une poignée d'épée longue. Lorsque vous saisissez la poignée, vous pouvez utiliser une action bonus pour faire apparaitre une lame de pure radiance, ou pour faire disparaître la lame. Lorsque la lame est sortie, l'épée longue magique a la propriété finesse. Si vous maîtrisez les épées longues ou courtes, vous maîtrisez l'épée radieuse.\nVous gagnez un bonus de +2 à l'attaque et aux dégâts infligés avec cette arme, qui inflige des dégâts radiants au lieu de dégâts tranchants. Quand vous frappez un mort-vivant avec cette arme, la cible subit 1d8 dégâts radiants supplémentaires.\nLa lame de l'épée émet une lumière vive dans un rayon de 4,50 mètres et une lumière faible sur 4,50 mètres supplémentaires. La lumière est semblable à la lumière du soleil. Tant que la lame persiste, vous pouvez utiliser une action pour augmenter ou réduire le rayon de lumière vive et de lumière faible de 1,50 mètre chacun, jusqu'à un maximum de 9 mètres ou un minimum de 3 mètres chacun.",
+      "quantite": 1,
+      "magique": true,
+      "lien": true,
+      "rarete": "rare"
     }
   ],
   "pieces": {

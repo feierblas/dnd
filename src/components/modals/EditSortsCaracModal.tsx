@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Sorts, EmplacementSort } from "@/types/Player";
 
 type Carac = "intelligence" | "sagesse" | "charisme";
@@ -9,7 +10,21 @@ type Props = {
   onClose: () => void;
 };
 
+// Lock scroll sur le body si ouvert
+function useLockBodyScroll(lock: boolean) {
+  useEffect(() => {
+    if (!lock) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [lock]);
+}
+
 export default function EditSortsCaracModal({ sorts, onSave, onClose }: Props) {
+  useLockBodyScroll(true);
+
   const [carac, setCarac] = useState<Carac>(
     sorts.caracteristiqueIncantation as Carac
   );
@@ -20,6 +35,21 @@ export default function EditSortsCaracModal({ sorts, onSave, onClose }: Props) {
   const [emplacements, setEmplacements] = useState<EmplacementSort[]>(
     sorts.emplacements
   );
+
+  // Escape pour fermer la modale
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  // Focus auto
+  const modalRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    modalRef.current?.focus();
+  }, []);
 
   function updateEmplacementTotal(index: number, total: number) {
     setEmplacements((prev) =>
@@ -43,16 +73,26 @@ export default function EditSortsCaracModal({ sorts, onSave, onClose }: Props) {
     setEmplacements((e) => e.filter((_, i) => i !== index));
   }
   function addEmplacement() {
-    // Cherche le plus petit niveau absent
     const used = new Set(emplacements.map((e) => e.niveau));
     let next = 1;
     while (used.has(next) && next < 10) next++;
     setEmplacements((e) => [...e, { niveau: next, total: 1, restants: 1 }]);
   }
 
-  return (
-    <div className="fixed inset-0 z-40 bg-black/70 flex items-center justify-center">
-      <div className="bg-gray-900 rounded-xl p-6 shadow-lg max-w-lg w-full relative">
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[1200] bg-black/70 flex items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      tabIndex={-1}
+      onClick={onClose}
+    >
+      <div
+        ref={modalRef}
+        className="bg-gray-900 rounded-xl p-6 shadow-lg max-w-lg w-full relative outline-none"
+        tabIndex={0}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           className="absolute right-3 top-3 text-xl text-gray-400 hover:text-white"
           onClick={onClose}
@@ -107,7 +147,7 @@ export default function EditSortsCaracModal({ sorts, onSave, onClose }: Props) {
             .sort((a, b) => a.niveau - b.niveau)
             .map((e, i) => (
               <div key={i} className="flex gap-2 items-center mb-1">
-                <span className="w-14">Niveau {e.niveau}</span>
+                <span className="w-20">Niveau {e.niveau}</span>
                 <input
                   type="number"
                   className="w-16 rounded bg-gray-800 border-gray-700 px-2 py-1"
@@ -161,6 +201,7 @@ export default function EditSortsCaracModal({ sorts, onSave, onClose }: Props) {
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    typeof window !== "undefined" ? document.body : (null as any)
   );
 }
