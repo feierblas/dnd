@@ -20,17 +20,21 @@ export default function Competences({
   );
 
   useEffect(() => {
-    setCompetences(autoFillCompetences(player));
-  }, [player]); // PAS de dépendance sur competences, ni sur onChange
+    const filled = autoFillCompetences(player);
+    // console.log("autoFillCompetences(player) =>", filled);
+    setCompetences(filled);
+  }, [player]);
 
   function handleChange(index: number, comp: Competence) {
     const next = competences.map((c, i) => (i === index ? comp : c));
     setCompetences(next);
     onChange(next); // Appel unique lors de modif utilisateur !
+    console.log("JetsDeSauvegarde/handleChange: onChange(next), next=", next);
+    console.log("Player actuel:", player.competences);
   }
 
   return (
-    <section className="bg-gray-900 p-4 rounded-xl shadow my-4">
+    <section className="bg-gray-900 rounded-xl shadow p-3 w-full max-w-5xl">
       <div className="flex items-center mb-2 gap-4">
         <h2 className="text-xl font-semibold text-orange-400">Compétences</h2>
         <label className="flex items-center gap-2 text-xs ml-6">

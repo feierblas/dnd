@@ -1,6 +1,4 @@
-// /components/player/StatItem.tsx
-
-import { Stat, StatsBlock } from "@/types/Player";
+import { Stat } from "@/types/Player";
 import { useEffect, useState } from "react";
 
 type Props = {
@@ -10,27 +8,24 @@ type Props = {
 };
 
 export default function StatItem({ label, value, onChange }: Props) {
-  // Mise à jour automatique du modificateur quand le score change (DnD 5e)
   const [score, setScore] = useState<number>(value.score);
   const [mod, setMod] = useState<number>(value.mod);
 
+  // Synchronise avec la prop externe si jamais ça bouge
   useEffect(() => {
     setScore(value.score);
     setMod(value.mod);
   }, [value.score, value.mod]);
 
-  // Met à jour le modificateur si l'utilisateur change le score
-  function handleScoreChange(newScore: number) {
-    setScore(newScore);
-    const autoMod = Math.floor((newScore - 10) / 2);
-    setMod(autoMod);
-    onChange({ score: newScore, mod: autoMod });
+  // Gestion au blur seulement !
+  function handleScoreBlur() {
+    const autoMod = Math.floor((score - 10) / 2);
+    setMod(autoMod); // Visuellement
+    onChange({ score, mod: autoMod });
   }
 
-  // Permet à l'utilisateur de forcer le mod (mode manuel)
-  function handleModChange(newMod: number) {
-    setMod(newMod);
-    onChange({ score, mod: newMod });
+  function handleModBlur() {
+    onChange({ score, mod });
   }
 
   return (
@@ -41,14 +36,16 @@ export default function StatItem({ label, value, onChange }: Props) {
         value={score}
         min={1}
         max={30}
-        onChange={(e) => handleScoreChange(Number(e.target.value))}
+        onChange={(e) => setScore(Number(e.target.value))}
+        onBlur={handleScoreBlur}
         className="w-14 text-center rounded bg-gray-900 border-gray-700"
         title="Score"
       />
       <input
         type="number"
         value={mod}
-        onChange={(e) => handleModChange(Number(e.target.value))}
+        onChange={(e) => setMod(Number(e.target.value))}
+        onBlur={handleModBlur}
         className="w-14 text-center rounded bg-gray-900 border-gray-700"
         title="Modificateur"
       />

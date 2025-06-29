@@ -9,22 +9,24 @@ type Props = {
 };
 
 export default function JetsDeSauvegarde({ player, onChange }: Props) {
-  const [jdss, setJdss] = useState<JetDeSauvegarde[]>([]);
+  // 1. INIT à la création (et si player change)
+  const [jdss, setJdss] = useState<JetDeSauvegarde[]>(() =>
+    autoFillJdS(player)
+  );
 
-  // Initialisation seulement quand player change (externe)
   useEffect(() => {
     setJdss(autoFillJdS(player));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [player]); // <-- Important : pas [jdss] ni [onChange]
+  }, [player]); // jamais de [jdss] ni [onChange] ici !
 
+  // 2. Edition locale
   function handleChange(index: number, jds: JetDeSauvegarde) {
     const next = jdss.map((item, i) => (i === index ? jds : item));
     setJdss(next);
-    onChange(next); // Ici uniquement
+    onChange(next); // On push au parent, mais on garde notre état local
   }
 
   return (
-    <section className="bg-gray-900 p-4 rounded-xl shadow my-4">
+    <section className="bg-gray-900 rounded-xl shadow p-3 w-full max-w-5xl">
       <h2 className="text-xl font-semibold mb-2 text-orange-400">
         Jets de sauvegarde
       </h2>

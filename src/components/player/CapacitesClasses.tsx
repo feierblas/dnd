@@ -9,6 +9,74 @@ type Props = {
   onChange: (classes: Classe[]) => void;
 };
 
+function ClasseLine({
+  classe,
+  index,
+  onUpdate,
+  onRemove,
+  onChangeCapacites,
+}: {
+  classe: Classe;
+  index: number;
+  onUpdate: (patch: Partial<Classe>) => void;
+  onRemove: () => void;
+  onChangeCapacites: (caps: Capacite[]) => void;
+}) {
+  // Edition différée (local)
+  const [niveauEdit, setNiveauEdit] = useState(classe.niveau);
+  const [sousClasseEdit, setSousClasseEdit] = useState(classe.sousClasse || "");
+
+  return (
+    <div className="mb-6 bg-gray-800 rounded-xl p-3">
+      <div className="flex gap-4 items-center mb-2">
+        <span className="font-semibold text-orange-300">
+          {classe.nom} (Niv. {classe.niveau}
+          {classe.sousClasse ? ", " + classe.sousClasse : ""})
+        </span>
+        <button
+          className="text-red-500 hover:text-red-700 text-xs"
+          onClick={onRemove}
+          title="Supprimer cette classe"
+        >
+          ✕
+        </button>
+        {/* Edition différée niveau */}
+        <input
+          type="number"
+          min={1}
+          value={niveauEdit}
+          onChange={(e) => setNiveauEdit(Number(e.target.value))}
+          onBlur={() => {
+            if (classe.niveau !== niveauEdit) onUpdate({ niveau: niveauEdit });
+          }}
+          className="w-16 rounded bg-gray-900 border-gray-700 px-2 py-1 ml-4"
+          title="Niveau"
+        />
+        {/* Edition différée sous-classe */}
+        <input
+          type="text"
+          value={sousClasseEdit}
+          onChange={(e) => setSousClasseEdit(e.target.value)}
+          onBlur={() => {
+            if ((classe.sousClasse || "") !== sousClasseEdit)
+              onUpdate({ sousClasse: sousClasseEdit });
+          }}
+          className="w-40 rounded bg-gray-900 border-gray-700 px-2 py-1"
+          placeholder="Sous-classe"
+          title="Sous-classe"
+        />
+      </div>
+      <div>
+        <ListeCapacitesUtilisation
+          titre="Capacités de classe"
+          capacites={classe.capacites || []}
+          onChange={onChangeCapacites}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function CapacitesClasses({ classes, onChange }: Props) {
   // Edition classe
   const [nouvelleClasse, setNouvelleClasse] = useState<{
@@ -49,15 +117,8 @@ export default function CapacitesClasses({ classes, onChange }: Props) {
     updateClasse(classIdx, { capacites });
   }
 
-  function removeCapacite(classIdx: number, capIdx: number) {
-    const c = classes[classIdx];
-    if (!c) return;
-    const capacites = (c.capacites || []).filter((_, i) => i !== capIdx);
-    updateClasse(classIdx, { capacites });
-  }
-
   return (
-    <section className="bg-gray-900 p-4 rounded-xl shadow my-4">
+    <section className="bg-gray-900 rounded-xl shadow p-3 w-full max-w-5xl">
       <h2 className="text-xl font-semibold mb-4 text-orange-400">
         Capacités de classe
       </h2>
@@ -101,57 +162,23 @@ export default function CapacitesClasses({ classes, onChange }: Props) {
         </button>
       </div>
       {classes.map((classe, i) => (
-        <div key={i} className="mb-6 bg-gray-800 rounded-xl p-3">
-          <div className="flex gap-4 items-center mb-2">
-            <span className="font-semibold text-orange-300">
-              {classe.nom} (Niv. {classe.niveau}
-              {classe.sousClasse ? ", " + classe.sousClasse : ""})
-            </span>
-            <button
-              className="text-red-500 hover:text-red-700 text-xs"
-              onClick={() => removeClasse(i)}
-              title="Supprimer cette classe"
-            >
-              ✕
-            </button>
-            {/* Edition rapide */}
-            <input
-              type="number"
-              min={1}
-              value={classe.niveau}
-              onChange={(e) =>
-                updateClasse(i, { niveau: Number(e.target.value) })
-              }
-              className="w-16 rounded bg-gray-900 border-gray-700 px-2 py-1 ml-4"
-              title="Niveau"
-            />
-            <input
-              type="text"
-              value={classe.sousClasse || ""}
-              onChange={(e) => updateClasse(i, { sousClasse: e.target.value })}
-              className="w-40 rounded bg-gray-900 border-gray-700 px-2 py-1"
-              placeholder="Sous-classe"
-              title="Sous-classe"
-            />
-          </div>
-          <div>
-            <ListeCapacitesUtilisation
-              titre="Capacités de classe"
-              capacites={classe.capacites || []}
-              onChange={(caps) => {
-                // Met à jour la liste des capacités de CETTE classe uniquement
-                onChange(
-                  classes.map((c, idx) =>
-                    idx === i ? { ...c, capacites: caps } : c
-                  )
-                );
-              }}
-            />
-          </div>
-        </div>
+        <ClasseLine
+          key={i}
+          classe={classe}
+          index={i}
+          onUpdate={(patch) => updateClasse(i, patch)}
+          onRemove={() => removeClasse(i)}
+          onChangeCapacites={(caps) =>
+            onChange(
+              classes.map((c, idx) =>
+                idx === i ? { ...c, capacites: caps } : c
+              )
+            )
+          }
+        />
       ))}
 
-      {/* Modals */}
+      {/* Modals éventuels */}
       {modalVoir && (
         <CapaciteModalVoir
           capacite={
