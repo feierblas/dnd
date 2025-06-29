@@ -1,6 +1,5 @@
-// /pages/joueur/[uuid]/page.tsx
-
 "use client";
+import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { usePlayer } from "@/hooks/usePlayer";
 import StatsBlockSection from "@/components/player/StatsBlock";
@@ -8,22 +7,55 @@ import Competences from "@/components/player/Competences";
 import JetsDeSauvegarde from "@/components/player/JetsDeSauvegarde";
 import Vitals from "@/components/player/Vitals";
 import SortsSection from "@/components/player/Sorts";
-import Equipement from "@/components/player/Equipement";
-import IdentitePerso from "@/components/player/IdentitePerso";
-import MaitrisesEtArmes from "@/components/player/MaitrisesEtArmes";
-import CapacitesClasses from "@/components/player/CapacitesClasses";
-import TraitsEspece from "@/components/player/ListeCapacitesUtilisation";
-import ListeCapacites from "@/components/player/ListeCapacitesUtilisation";
-import ListeTraitsEspece from "@/components/player/ListeTraitsEspece";
 import EquipementSection from "@/components/player/EquipementSection";
-import PiecesSection from "@/components/player/PiecesSection";
-import CapaciteHistoriqueSection from "@/components/player/CapaciteHistoriqueSection";
+import IdentitePerso from "@/components/player/IdentitePerso";
+import CapacitesClasses from "@/components/player/CapacitesClasses";
 import ListeCapacitesUtilisation from "@/components/player/ListeCapacitesUtilisation";
+import PiecesSection from "@/components/player/PiecesSection";
+
+import RGL, { WidthProvider } from "react-grid-layout";
+import "react-grid-layout/css/styles.css";
+import "react-resizable/css/styles.css";
+import Maitrises from "@/components/player/MaitrisesSection";
+import Armes from "@/components/player/Armes";
+const ReactGridLayout = WidthProvider(RGL);
 
 export default function PageFichePerso() {
   const params = useParams();
   const id = params.uuid as string;
   const { player, updatePlayer, loading, saving, error } = usePlayer(id);
+
+  const defaultLayout = [
+    { i: "vitals", x: 0, y: 0, w: 9, h: 10, minW: 8, minH: 2 },
+    { i: "stats", x: 9, y: 0, w: 9, h: 7, minW: 3, minH: 2 },
+    { i: "saves", x: 18, y: 0, w: 9, h: 9, minW: 5, minH: 2 },
+    { i: "competences", x: 0, y: 8, w: 9, h: 22, minW: 8, minH: 2 },
+    { i: "armes", x: 9, y: 5, w: 9, h: 5, minW: 7, minH: 2 },
+    { i: "maitrises", x: 9, y: 6, w: 9, h: 5, minW: 3, minH: 2 },
+    { i: "sorts", x: 18, y: 5, w: 9, h: 7, minW: 9, minH: 2 },
+    { i: "equipement", x: 0, y: 16, w: 9, h: 5, minW: 7, minH: 2 },
+    { i: "identite", x: 9, y: 10, w: 9, h: 14, minW: 9, minH: 2 },
+    { i: "dons", x: 18, y: 13, w: 9, h: 5, minW: 6, minH: 2 },
+    { i: "classes", x: 0, y: 20, w: 9, h: 16, minW: 8, minH: 2 },
+    { i: "traits", x: 9, y: 16, w: 9, h: 4, minW: 6, minH: 2 },
+    { i: "historique", x: 0, y: 25, w: 9, h: 4, minW: 6, minH: 2 },
+    { i: "pieces", x: 18, y: 18, w: 9, h: 5, minW: 3, minH: 2 },
+  ];
+
+  const [editMode, setEditMode] = useState(false);
+  const [layout, setLayout] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("dnd-layout-" + id);
+      if (saved) return JSON.parse(saved);
+    }
+    return defaultLayout;
+  });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("dnd-layout-" + id, JSON.stringify(layout));
+    }
+  }, [layout, id]);
 
   if (loading)
     return <div className="p-8 text-center text-gray-300">Chargement…</div>;
@@ -33,6 +65,108 @@ export default function PageFichePerso() {
         {error || "Fiche introuvable."}
       </div>
     );
+
+  // Mapping : clé => composant fonction (pas JSX direct)
+  const blockComponents = {
+    vitals: () => (
+      <Vitals
+        player={player}
+        onChange={(fields) =>
+          Object.entries(fields).forEach(([k, v]) => updatePlayer(k as any, v))
+        }
+      />
+    ),
+    stats: () => (
+      <StatsBlockSection
+        stats={player.stats}
+        onChange={(stats) => updatePlayer("stats", stats)}
+      />
+    ),
+    saves: () => (
+      <JetsDeSauvegarde
+        player={player}
+        onChange={(jdss) => updatePlayer("jetsDeSauvegarde", jdss)}
+      />
+    ),
+    competences: () => (
+      <Competences
+        player={player}
+        onChange={(competences) => updatePlayer("competences", competences)}
+        onToggleToucheATout={(val) => updatePlayer("toucheATout", val)}
+      />
+    ),
+    maitrises: () => (
+      <Maitrises
+        maitrises={player.maitrises}
+        onChangeMaitrises={(m) => updatePlayer("maitrises", m)}
+      />
+    ),
+    armes: () => (
+      <Armes
+        armes={player.armes}
+        onChangeArmes={(a) => updatePlayer("armes", a)}
+      />
+    ),
+    sorts: () => (
+      <SortsSection
+        sorts={player.sorts}
+        onChange={(s) => updatePlayer("sorts", s)}
+      />
+    ),
+    equipement: () => (
+      <EquipementSection
+        equipement={player.equipement}
+        onChange={(eq) => updatePlayer("equipement", eq)}
+      />
+    ),
+    identite: () => (
+      <IdentitePerso
+        player={player}
+        onChange={(fields) =>
+          Object.entries(fields).forEach(([k, v]) => updatePlayer(k as any, v))
+        }
+      />
+    ),
+    pieces: () => (
+      <PiecesSection
+        pieces={player.pieces}
+        onChange={(p) => updatePlayer("pieces", p)}
+      />
+    ),
+    classes: () => (
+      <CapacitesClasses
+        classes={player.classes}
+        onChange={(classes) => updatePlayer("classes", classes)}
+      />
+    ),
+    traits: () => (
+      <ListeCapacitesUtilisation
+        titre="Traits d'espèce"
+        capacites={player.capacitesRaciales}
+        onChange={(caps) => updatePlayer("capacitesRaciales", caps)}
+      />
+    ),
+    dons: () => (
+      <ListeCapacitesUtilisation
+        titre="Dons"
+        capacites={player.dons}
+        onChange={(caps) => updatePlayer("dons", caps)}
+      />
+    ),
+    historique: () => (
+      <ListeCapacitesUtilisation
+        titre="Trait historique"
+        capacites={
+          Array.isArray(player.capaciteHistorique)
+            ? player.capaciteHistorique
+            : []
+        }
+        onChange={(caps) => updatePlayer("capaciteHistorique", caps)}
+      />
+    ),
+  } as const;
+
+  type BlockKey = keyof typeof blockComponents;
 
   return (
     <main className="min-h-screen w-full bg-gray-950 text-white flex flex-col items-center py-8 px-2">
@@ -55,86 +189,51 @@ export default function PageFichePerso() {
                 .join(" / ")}
             </div>
           </div>
+          <div>
+            <button
+              className="ml-4 px-3 py-1 rounded bg-gray-800 text-orange-400 border border-orange-400 hover:bg-orange-950"
+              onClick={() => setEditMode((v) => !v)}
+            >
+              {editMode ? "Terminer la disposition" : "✏️ Disposer les blocs"}
+            </button>
+            <button
+              className="ml-2 px-3 py-1 rounded bg-gray-800 text-red-400 border border-red-400 hover:bg-red-950"
+              onClick={() => setLayout(defaultLayout)}
+            >
+              Réinitialiser la disposition
+            </button>
+          </div>
         </div>
+        {/* GRID */}
+        <ReactGridLayout
+          className="layout"
+          layout={layout}
+          cols={27}
+          rowHeight={20}
+          width={1500}
+          isDraggable={editMode}
+          isResizable={editMode}
+          onLayoutChange={setLayout}
+        >
+          {layout.map((l) => {
+            const Block = blockComponents[l.i as BlockKey];
+            if (!Block) return null;
+            return (
+              <div
+                key={l.i}
+                className={`rounded-xl shadow bg-gray-900 ${
+                  editMode
+                    ? "border-dashed border-2 border-orange-400 hover:border-orange-300 cursor-move"
+                    : ""
+                }`}
+                style={{ overflow: "hidden" }}
+              >
+                <Block />
+              </div>
+            );
+          })}
+        </ReactGridLayout>
 
-        {/* Grid principale */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-          <div>
-            <StatsBlockSection
-              stats={player.stats}
-              onChange={(stats) => updatePlayer("stats", stats)}
-            />
-            <JetsDeSauvegarde
-              player={player}
-              onChange={(jdss) => updatePlayer("jetsDeSauvegarde", jdss)}
-            />
-            <Competences
-              player={player}
-              onChange={(competences) =>
-                updatePlayer("competences", competences)
-              }
-              onToggleToucheATout={(val) => updatePlayer("toucheATout", val)}
-            />
-            <MaitrisesEtArmes
-              maitrises={player.maitrises}
-              armes={player.armes}
-              onChangeMaitrises={(m) => updatePlayer("maitrises", m)}
-              onChangeArmes={(a) => updatePlayer("armes", a)}
-            />
-          </div>
-          <div>
-            <Vitals
-              player={player}
-              onChange={(fields) =>
-                Object.entries(fields).forEach(([k, v]) =>
-                  updatePlayer(k as any, v)
-                )
-              }
-            />
-            <EquipementSection
-              equipement={player.equipement}
-              onChange={(eq) => updatePlayer("equipement", eq)}
-            />
-            <IdentitePerso
-              player={player}
-              onChange={(fields) =>
-                Object.entries(fields).forEach(([k, v]) =>
-                  updatePlayer(k as any, v)
-                )
-              }
-            />
-            {/* Pièces */}
-            <PiecesSection
-              pieces={player.pieces}
-              onChange={(p) => updatePlayer("pieces", p)}
-            />
-          </div>
-          <div>
-            <SortsSection
-              sorts={player.sorts}
-              onChange={(s) => updatePlayer("sorts", s)}
-            />
-            <CapacitesClasses
-              classes={player.classes}
-              onChange={(classes) => updatePlayer("classes", classes)}
-            />
-            <ListeCapacitesUtilisation
-              titre="Traits d'espèce"
-              capacites={player.capacitesRaciales}
-              onChange={(caps) => updatePlayer("capacitesRaciales", caps)}
-            />
-            <ListeCapacitesUtilisation
-              titre="Dons"
-              capacites={player.dons}
-              onChange={(caps) => updatePlayer("dons", caps)}
-            />
-            <ListeCapacitesUtilisation
-              titre="Historique"
-              capacites={player.capaciteHistorique}
-              onChange={(caps) => updatePlayer("capaciteHistorique", caps)}
-            />
-          </div>
-        </div>
         {/* Status de sauvegarde auto */}
         <div className="mt-8 text-center text-xs text-gray-400">
           {saving ? "Sauvegarde..." : "Modifications enregistrées"}

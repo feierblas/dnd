@@ -2,6 +2,7 @@
 
 import { JetDeSauvegarde, Player } from "@/types/Player";
 
+// Table des JdS de base
 const JDS: {
   nom: JetDeSauvegarde["nom"];
   stat: JetDeSauvegarde["sourceStat"];
@@ -14,15 +15,17 @@ const JDS: {
   { nom: "CHA", stat: "charisme" },
 ];
 
+// Calcul d'une valeur
 export function computeJdSValue(player: Player, jds: JetDeSauvegarde): number {
   const mod = player.stats[jds.sourceStat].mod;
   const bonus = jds.maitrise ? player.bonusMaitrise : 0;
   return mod + bonus;
 }
 
+// Génère la liste des JdS (auto ou manuel)
 export function autoFillJdS(player: Player): JetDeSauvegarde[] {
   return JDS.map(({ nom, stat }) => {
-    const exist = player.jetsDeSauvegarde.find((j) => j.nom === nom);
+    const exist = player.jetsDeSauvegarde?.find((j) => j.nom === nom);
     const maitrise = exist?.maitrise ?? false;
     const valeur =
       exist?.mode === "manuel"

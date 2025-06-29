@@ -23,11 +23,11 @@ export default function StatsBlockSection({ stats, onChange }: Props) {
   }
 
   return (
-    <section className="bg-gray-900 p-4 rounded-xl shadow my-4">
+    <section className="bg-gray-900 rounded-xl shadow p-3 w-full max-w-5xl">
       <h2 className="text-xl font-semibold mb-4 text-orange-400">
         Caractéristiques
       </h2>
-      <div className="flex flex-wrap gap-4 justify-between">
+      <div className="flex flex-wrap gap-2 ">
         {labels.map(({ key, label }) => (
           <StatItem
             key={key}

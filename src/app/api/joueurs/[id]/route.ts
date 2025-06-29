@@ -7,12 +7,8 @@ export async function GET(
   req: NextRequest,
   context: { params: { id: string } }
 ) {
-  const filePath = path.join(
-    process.cwd(),
-    "data",
-    "joueurs",
-    `${context.params.id}.json`
-  );
+  const { id } = await context.params;
+  const filePath = path.join(process.cwd(), "data", "joueurs", `${id}.json`);
   try {
     const content = await fs.readFile(filePath, "utf8");
     return new Response(content, {
@@ -31,12 +27,8 @@ export async function PUT(
   req: NextRequest,
   context: { params: { id: string } }
 ) {
-  const filePath = path.join(
-    process.cwd(),
-    "data",
-    "joueurs",
-    `${context.params.id}.json`
-  );
+  const { id } = await context.params; // <-- Ajout du await ici !
+  const filePath = path.join(process.cwd(), "data", "joueurs", `${id}.json`);
   try {
     const body = await req.json();
     await fs.writeFile(filePath, JSON.stringify(body, null, 2), "utf8");

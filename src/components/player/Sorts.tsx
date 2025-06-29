@@ -85,7 +85,7 @@ export default function SortsSection({
   const sortsPrepares = sorts.connus.filter((s) => s.prepare);
 
   return (
-    <section className="bg-gray-900 p-4 rounded-xl shadow my-4">
+    <section className="bg-gray-900 rounded-xl shadow p-3 w-full max-w-5xl">
       <div className="flex items-center justify-between mb-2">
         <h2 className="text-xl font-semibold text-orange-400">Sorts</h2>
         <div className="flex gap-2">

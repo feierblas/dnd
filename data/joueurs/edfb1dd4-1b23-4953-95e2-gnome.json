@@ -2,7 +2,7 @@
   "id": "edfb1dd4-1b23-4953-95e2-gnome",
   "name": "Nibble Ombrelueur",
   "race": {
-    "nom": "Gnome de profondeurs (Svirfneblin)",
+    "nom": "Gnome de profondeurs",
     "traits": [
       {
         "nom": "Vision dans le noir supérieure",
@@ -17,8 +17,8 @@
   "classes": [
     {
       "nom": "Magicien",
-      "niveau": 2,
-      "sousClasse": "École d'Illusion",
+      "niveau": 3,
+      "sousClasse": "École d'Artiste",
       "capacites": [
         {
           "nom": "Sculpteur d’illusion",
@@ -44,32 +44,26 @@
           "description": "Utilise la ruse comme bonus."
         }
       ]
-    },
-    {
-      "nom": "Re",
-      "niveau": 5,
-      "sousClasse": "Sds",
-      "capacites": []
     }
   ],
-  "historique": "Espion",
-  "alignement": "Neutre bon",
-  "xp": 6500,
+  "historique": "Espion (agent)",
+  "alignement": "Neutre bon ",
+  "xp": 1700,
   "stats": {
     "force": {
-      "score": 21,
-      "mod": 5
+      "score": 13,
+      "mod": 1
     },
     "dexterite": {
-      "score": 18,
-      "mod": 4
+      "score": 9,
+      "mod": -1
     },
     "constitution": {
       "score": 14,
       "mod": 2
     },
     "intelligence": {
-      "score": 16,
+      "score": 17,
       "mod": 3
     },
     "sagesse": {
@@ -81,7 +75,7 @@
       "mod": -2
     }
   },
-  "bonusMaitrise": 4,
+  "bonusMaitrise": 5,
   "perceptionPassive": {
     "mode": "auto",
     "valeur": 13
@@ -89,16 +83,16 @@
   "ca": 15,
   "initiative": {
     "mode": "auto",
-    "valeur": 4
+    "valeur": -1
   },
-  "vitesse": 7.5,
-  "pv": 28,
-  "pvMax": 28,
+  "vitesse": 9,
+  "pv": 44,
+  "pvMax": 44,
   "pvTemp": 0,
   "desDeVie": {
     "type": "d6/d8",
-    "total": 4,
-    "restants": 4
+    "total": 5,
+    "restants": 5
   },
   "jdsMort": {
     "reussites": 0,
@@ -108,14 +102,14 @@
     {
       "nom": "FOR",
       "maitrise": true,
-      "valeur": 9,
+      "valeur": 52,
       "sourceStat": "force",
       "mode": "auto"
     },
     {
       "nom": "DEX",
       "maitrise": true,
-      "valeur": 8,
+      "valeur": 4,
       "sourceStat": "dexterite",
       "mode": "auto"
     },
@@ -129,7 +123,7 @@
     {
       "nom": "INT",
       "maitrise": true,
-      "valeur": 7,
+      "valeur": 8,
       "sourceStat": "intelligence",
       "mode": "auto"
     },
@@ -143,7 +137,7 @@
     {
       "nom": "CHA",
       "maitrise": false,
-      "valeur": 2,
+      "valeur": -2,
       "sourceStat": "charisme",
       "mode": "auto"
     }
@@ -154,7 +148,7 @@
       "stat": "force",
       "maitrise": true,
       "expertise": false,
-      "valeur": 9,
+      "valeur": 4,
       "mode": "auto"
     },
     {
@@ -162,15 +156,15 @@
       "stat": "dexterite",
       "maitrise": true,
       "expertise": true,
-      "valeur": 8,
+      "valeur": 9,
       "mode": "auto"
     },
     {
       "nom": "Discrétion",
       "stat": "dexterite",
-      "maitrise": false,
-      "expertise": false,
-      "valeur": 4,
+      "maitrise": true,
+      "expertise": true,
+      "valeur": 9,
       "mode": "auto"
     },
     {
@@ -178,7 +172,7 @@
       "stat": "dexterite",
       "maitrise": false,
       "expertise": false,
-      "valeur": 4,
+      "valeur": 1,
       "mode": "auto"
     },
     {
@@ -186,7 +180,7 @@
       "stat": "intelligence",
       "maitrise": false,
       "expertise": false,
-      "valeur": 3,
+      "valeur": 5,
       "mode": "auto"
     },
     {
@@ -194,7 +188,7 @@
       "stat": "intelligence",
       "maitrise": false,
       "expertise": false,
-      "valeur": 3,
+      "valeur": 5,
       "mode": "auto"
     },
     {
@@ -202,7 +196,7 @@
       "stat": "intelligence",
       "maitrise": false,
       "expertise": false,
-      "valeur": 3,
+      "valeur": 5,
       "mode": "auto"
     },
     {
@@ -210,7 +204,7 @@
       "stat": "intelligence",
       "maitrise": false,
       "expertise": false,
-      "valeur": 3,
+      "valeur": 5,
       "mode": "auto"
     },
     {
@@ -218,7 +212,7 @@
       "stat": "intelligence",
       "maitrise": false,
       "expertise": false,
-      "valeur": 3,
+      "valeur": 5,
       "mode": "auto"
     },
     {
@@ -226,7 +220,7 @@
       "stat": "sagesse",
       "maitrise": false,
       "expertise": false,
-      "valeur": 3,
+      "valeur": 5,
       "mode": "auto"
     },
     {
@@ -234,7 +228,7 @@
       "stat": "sagesse",
       "maitrise": false,
       "expertise": false,
-      "valeur": 3,
+      "valeur": 5,
       "mode": "auto"
     },
     {
@@ -242,7 +236,7 @@
       "stat": "sagesse",
       "maitrise": false,
       "expertise": false,
-      "valeur": 3,
+      "valeur": 5,
       "mode": "auto"
     },
     {
@@ -250,7 +244,7 @@
       "stat": "sagesse",
       "maitrise": false,
       "expertise": false,
-      "valeur": 3,
+      "valeur": 5,
       "mode": "auto"
     },
     {
@@ -258,7 +252,7 @@
       "stat": "sagesse",
       "maitrise": false,
       "expertise": false,
-      "valeur": 3,
+      "valeur": 5,
       "mode": "auto"
     },
     {
@@ -266,7 +260,7 @@
       "stat": "charisme",
       "maitrise": false,
       "expertise": false,
-      "valeur": -2,
+      "valeur": 0,
       "mode": "auto"
     },
     {
@@ -274,7 +268,7 @@
       "stat": "charisme",
       "maitrise": false,
       "expertise": false,
-      "valeur": -2,
+      "valeur": 0,
       "mode": "auto"
     },
     {
@@ -282,7 +276,7 @@
       "stat": "charisme",
       "maitrise": false,
       "expertise": false,
-      "valeur": -2,
+      "valeur": 0,
       "mode": "auto"
     },
     {
@@ -290,27 +284,24 @@
       "stat": "charisme",
       "maitrise": false,
       "expertise": false,
-      "valeur": -2,
+      "valeur": 0,
       "mode": "auto"
     }
   ],
   "maitrises": {
     "armures": [
-      "aucune",
-      "test"
+      "Armues lourd"
     ],
     "armes": [
-      "armes courantes",
-      "armes simples"
+      "Epée court"
     ],
     "outils": [
-      "outils de faussaire",
-      "outils de voleur"
+      "osdsds"
     ]
   },
   "armes": [
     {
-      "nom": "Dague",
+      "nom": "Shuisui",
       "attaque": "+6",
       "degats": "1d4+3",
       "proprietes": [
@@ -327,91 +318,11 @@
     "emplacements": [
       {
         "niveau": 1,
-        "total": 5,
-        "restants": 5
-      },
-      {
-        "niveau": 2,
-        "total": 3,
-        "restants": 3
-      },
-      {
-        "niveau": 3,
-        "total": 3,
-        "restants": 3
-      },
-      {
-        "niveau": 4,
-        "total": 3,
-        "restants": 3
+        "total": 4,
+        "restants": 2
       }
     ],
-    "connus": [
-      {
-        "nom": "Projectiles magiques",
-        "niveau": 1,
-        "ecole": "Évocation",
-        "description": "Trois projectiles d'énergie magique infligent 1d4+1 dégâts de force chacun à des cibles à portée.",
-        "concentration": false,
-        "rituel": false,
-        "prepare": true,
-        "portee": "36m",
-        "duree": "Instantanée",
-        "tempsIncantation": "1 action",
-        "composantes": [
-          ""
-        ],
-        "source": ""
-      },
-      {
-        "nom": "Détection de la magie",
-        "niveau": 1,
-        "ecole": "Divination",
-        "description": "Vous détectez la magie à 9 mètres autour de vous.",
-        "concentration": true,
-        "rituel": true,
-        "prepare": false,
-        "portee": "Personnelle",
-        "duree": "Jusqu'à 10 min",
-        "tempsIncantation": "1 action",
-        "composantes": [
-          "V, S, MMMMMM"
-        ],
-        "source": "PHB"
-      },
-      {
-        "nom": "Illusion mineure",
-        "niveau": 0,
-        "ecole": "Illusion",
-        "description": "Créez une petite illusion sonore ou visuelle.",
-        "concentration": false,
-        "rituel": false,
-        "prepare": true,
-        "portee": "9m",
-        "duree": "1 min",
-        "tempsIncantation": "1 action",
-        "composantes": [
-          "V, S, T"
-        ],
-        "source": "PHB"
-      },
-      {
-        "nom": "Arme Magique",
-        "niveau": 2,
-        "ecole": "transmutation",
-        "description": "Vous touchez une arme non magique. Jusqu'à la fin du sort, l'arme est considérée comme étant une arme magique avec un bonus de +1 aux jets d'attaque et aux dégâts.\n\nAux niveaux supérieurs. Lorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 4 ou supérieur, le bonus augmente à +2. Lorsque vous utilisez un emplacement de sort de niveau 6 ou supérieur, le bonus augmente à +3.",
-        "concentration": true,
-        "rituel": false,
-        "prepare": true,
-        "portee": "contact",
-        "duree": "1 heure",
-        "tempsIncantation": "",
-        "composantes": [
-          "VS"
-        ],
-        "source": ""
-      }
-    ]
+    "connus": []
   },
   "capacitesRaciales": [
     {
@@ -427,14 +338,14 @@
   ],
   "dons": [
     {
-      "nom": "Alerte",
+      "nom": "Alerte dlooopze",
       "description": "+5 à l’initiative, impossible d’être surpris tant conscient.",
       "utilisationsMax": 3,
       "utilisationsRestantes": 3
     }
   ],
   "apparence": {
-    "age": 43,
+    "age": "25",
     "taille": "1m05",
     "poids": "17kg",
     "couleurYeux": "gris",
@@ -445,42 +356,24 @@
   "langues": [
     "Commun",
     "Gnome",
-    "Souterrain",
-    "tg"
+    "Souterrain"
   ],
   "equipement": [
     {
-      "nom": "Sac à dos",
-      "description": "test",
-      "quantite": 1
-    },
-    {
-      "nom": "Corde de soie (15m)",
+      "nom": "Test",
       "description": "",
-      "quantite": 1,
+      "quantite": 2,
       "magique": false,
-      "lien": true
-    },
-    {
-      "nom": "Kit de déguisement",
-      "quantite": 1
-    },
-    {
-      "nom": "Epee radieuse",
-      "description": "Cet objet semble être une poignée d'épée longue. Lorsque vous saisissez la poignée, vous pouvez utiliser une action bonus pour faire apparaitre une lame de pure radiance, ou pour faire disparaître la lame. Lorsque la lame est sortie, l'épée longue magique a la propriété finesse. Si vous maîtrisez les épées longues ou courtes, vous maîtrisez l'épée radieuse.\nVous gagnez un bonus de +2 à l'attaque et aux dégâts infligés avec cette arme, qui inflige des dégâts radiants au lieu de dégâts tranchants. Quand vous frappez un mort-vivant avec cette arme, la cible subit 1d8 dégâts radiants supplémentaires.\nLa lame de l'épée émet une lumière vive dans un rayon de 4,50 mètres et une lumière faible sur 4,50 mètres supplémentaires. La lumière est semblable à la lumière du soleil. Tant que la lame persiste, vous pouvez utiliser une action pour augmenter ou réduire le rayon de lumière vive et de lumière faible de 1,50 mètre chacun, jusqu'à un maximum de 9 mètres ou un minimum de 3 mètres chacun.",
-      "quantite": 1,
-      "magique": true,
-      "lien": true,
-      "rarete": "rare"
+      "lien": false
     }
   ],
   "pieces": {
-    "po": 56,
+    "po": 2,
     "pa": 12,
     "pc": 8,
-    "pp": 0
+    "pp": 22
   },
-  "toucheATout": false,
+  "toucheATout": true,
   "capaciteHistorique": [
     {
       "nom": "test",
