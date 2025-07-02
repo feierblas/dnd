@@ -14,24 +14,22 @@ export default function Competences({
   onChange,
   onToggleToucheATout,
 }: Props) {
-  // Initialise à partir du player à l'arrivée ou changement de player (nouveau perso, restat...)
   const [competences, setCompetences] = useState<Competence[]>(() =>
     autoFillCompetences(player)
   );
 
   useEffect(() => {
-    const filled = autoFillCompetences(player);
-    // console.log("autoFillCompetences(player) =>", filled);
-    setCompetences(filled);
+    setCompetences(autoFillCompetences(player));
   }, [player]);
 
   function handleChange(index: number, comp: Competence) {
     const next = competences.map((c, i) => (i === index ? comp : c));
     setCompetences(next);
-    onChange(next); // Appel unique lors de modif utilisateur !
-    console.log("JetsDeSauvegarde/handleChange: onChange(next), next=", next);
-    console.log("Player actuel:", player.competences);
+    onChange(next);
   }
+
+  // Pour le header de bloc
+  let lastStat = "";
 
   return (
     <section className="bg-gray-900 rounded-xl shadow p-3 w-full max-w-5xl">
@@ -50,13 +48,23 @@ export default function Competences({
         </label>
       </div>
       <div>
-        {competences.map((c, i) => (
-          <CompetenceItem
-            key={c.nom}
-            competence={c}
-            onChange={(comp) => handleChange(i, comp)}
-          />
-        ))}
+        {competences.map((c, i) => {
+          const showHeader = c.stat !== lastStat;
+          lastStat = c.stat;
+          return (
+            <div key={c.nom}>
+              {showHeader && (
+                <div className="mt-2 mb-1 text-xs font-bold text-blue-300 uppercase tracking-wider">
+                  {c.stat}
+                </div>
+              )}
+              <CompetenceItem
+                competence={c}
+                onChange={(comp) => handleChange(i, comp)}
+              />
+            </div>
+          );
+        })}
       </div>
     </section>
   );

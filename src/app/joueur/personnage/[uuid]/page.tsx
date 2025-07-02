@@ -28,7 +28,7 @@ export default function PageFichePerso() {
   const defaultLayout = [
     { i: "stats", x: 0, y: 0, w: 9, h: 7, minW: 3, minH: 2 },
     { i: "saves", x: 0, y: 9, w: 9, h: 9, minW: 5, minH: 2 },
-    { i: "competences", x: 0, y: 18, w: 9, h: 22, minW: 8, minH: 2 },
+    { i: "competences", x: 0, y: 18, w: 9, h: 27, minW: 8, minH: 2 },
 
     { i: "vitals", x: 9, y: 0, w: 9, h: 10, minW: 8, minH: 2 },
     { i: "identite", x: 9, y: 10, w: 9, h: 14, minW: 9, minH: 2 },
